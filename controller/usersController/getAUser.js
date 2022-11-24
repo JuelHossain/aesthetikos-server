@@ -1,4 +1,5 @@
 const { usersCollection } = require("../../db/collections");
+const { default: sendError } = require("../../lib/sendError");
 
 const getAUser = async (req, res) => {
   try {
@@ -6,9 +7,7 @@ const getAUser = async (req, res) => {
     const result = await usersCollection.findOne({ email });
     res.send(result);
   } catch (err) {
-    const error = "getting a single user  was not successfull";
-    res.status(500).send(error);
-    console.log(err);
+    sendError(res, err, "updating a user was not successfull");
   }
 };
 module.exports = getAUser;

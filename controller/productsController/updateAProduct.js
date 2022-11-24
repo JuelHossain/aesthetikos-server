@@ -1,9 +1,9 @@
 const { ObjectId } = require("mongodb");
 const { productsCollection } = require("../../db/collections");
 
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
-// this api update a service based on a id
+// this api update a product based on a id
 
 const updateAProduct = async (req, res) => {
   try {

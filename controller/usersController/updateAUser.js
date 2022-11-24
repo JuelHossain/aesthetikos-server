@@ -1,4 +1,5 @@
 const { usersCollection } = require("../../db/collections");
+const { default: sendError } = require("../../lib/sendError");
 
 // this api update a service based on a id
 
@@ -14,9 +15,7 @@ const updateAUser = async (req, res) => {
     const result = await usersCollection.updateOne({ email }, updatedDoc);
     res.send(result);
   } catch (err) {
-    const error = "updating a user was not successfull";
-    res.status(500).send(error);
-    console.log(err);
+    sendError(res, err, "updating a user was not successfull");
   }
 };
 
