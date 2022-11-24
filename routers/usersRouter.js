@@ -1,13 +1,16 @@
 const express = require("express");
-const authenticate = require("../controller/usersController/authenticate");
-const deleteAUser = require("../controller/usersController/deleteAUser");
-const getAUser = require("../controller/usersController/getAUser");
-const getUsers = require("../controller/usersController/getUsers");
-const updateAUser = require("../controller/usersController/updateAUser");
+const {
+  getUsers,
+  createUser,
+  sendToken,
+  updateAUser,
+  deleteAUser,
+  getAUser
+} = require("../controller/usersController");
 
 const usersRouter = express.Router();
 
-usersRouter.route("/").get(getUsers).put(authenticate);
+usersRouter.route("/").get(getUsers).post(createUser).put(sendToken);
 
 usersRouter.route("/:email").get(getAUser).patch(updateAUser).delete(deleteAUser);
 

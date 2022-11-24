@@ -1,7 +1,7 @@
 const sendError = require("../lib/sendError");
 const verifyUser = require("./verifyUser");
 
-const verifyAdmin = (req, res, next) => {
+const verifyAdmin = async(req, res, next) => {
   verifyUser(req, res, () => {
     try {
       next();
