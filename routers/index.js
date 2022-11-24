@@ -1,9 +1,7 @@
-const reviewsRouter = require("./reviewsRouter");
-const serviceRouter = require("./servicesRouter");
+const productsRouter = require("./productsRouter");
 const usersRouter = require("./usersRouter");
 
 module.exports = {
-  reviewsRouter,
-  serviceRouter,
+  productsRouter,
   usersRouter
 };
