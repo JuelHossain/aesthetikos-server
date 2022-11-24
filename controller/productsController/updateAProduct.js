@@ -5,7 +5,7 @@ const { default: sendError } = require("../../lib/sendError");
 
 // this api update a service based on a id
 
-const updateAProducts = async (req, res) => {
+const updateAProduct = async (req, res) => {
   try {
     const { id } = req.params;
     const updatedService = req.body;
@@ -22,4 +22,4 @@ const updateAProducts = async (req, res) => {
   }
 };
 
-module.exports = updateAProducts;
+module.exports = updateAProduct;

@@ -1,13 +1,25 @@
 const express = require("express");
+const {
+  getProducts,
+  addAProduct,
+  getProductsCount,
+  getAProduct,
+  deleteAProduct,
+  updateAProduct
+} = require("../controller/productsController");
+
+const verifyUser = require("../middlewares/verifyUser");
 
 const productsRouter = express.Router();
 
-// productsRouter.route("/").get(getServices).post(verifyJwt, addAService);
+productsRouter.route("/").get(getProducts).post(verifyUser, addAProduct);
 
-// productsRouter
-//   .route("/:id")
-//   .get(getAService)
-//   .patch(verifyJwt, updateAService)
-//   .delete(verifyJwt, deleteAService);
+productsRouter.get("/count", getProductsCount);
+
+productsRouter
+  .route("/:id")
+  .get(getAProduct)
+  .patch(verifyUser, updateAProduct)
+  .delete(verifyUser, deleteAProduct);
 
 module.exports = productsRouter;
