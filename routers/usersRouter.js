@@ -10,7 +10,7 @@ const {
 
 const usersRouter = express.Router();
 
-usersRouter.route("/").get(getUsers).post(createUser).put(sendToken);
+usersRouter.route("/").get(getUsers).post(sendToken).put(createUser);
 
 usersRouter.route("/:email").get(getAUser).patch(updateAUser).delete(deleteAUser);
 
