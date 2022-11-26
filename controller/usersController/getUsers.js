@@ -1,5 +1,5 @@
 const { usersCollection } = require("../../db/collections");
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
 const getUsers = async (req, res) => {
   try {
@@ -8,8 +8,12 @@ const getUsers = async (req, res) => {
     const { seller, admin, buyer } = req.query;
     const query = {};
     if (admin) Object.assign(query, { admin: true });
-    if (seller) Object.assign(query, { seller: true });
-    if (buyer) Object.assign(query, { seller: false, admin: false });
+    if (seller)
+      Object.assign(query, {
+        seller: true,
+        $or: [{ admin: { $exists: false } }, { admin: false }]
+      });
+    if (buyer) Object.assign(query, { $or: [{ seller: { $exists: false } }, { seller: false }] });
     const cursor = usersCollection.find(query);
 
     let users;
@@ -25,6 +29,7 @@ const getUsers = async (req, res) => {
 
     res.send(users);
   } catch (error) {
+    console.log(typeof sendError);
     sendError(res, error);
   }
 };
