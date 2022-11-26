@@ -1,5 +1,5 @@
 const generateToken = require("../../lib/generateToken");
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
 const sendToken = async (req, res) => {
   try {

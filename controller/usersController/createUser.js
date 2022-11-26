@@ -1,6 +1,6 @@
 const { usersCollection } = require("../../db/collections");
 const generateToken = require("../../lib/generateToken");
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
 const createUser = async (req, res) => {
   try {

@@ -1,5 +1,5 @@
 const { usersCollection } = require("../../db/collections");
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
 // this api update a service based on a id
 

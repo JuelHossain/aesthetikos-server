@@ -1,5 +1,5 @@
 const { usersCollection } = require("../../db/collections");
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
 const getAUser = async (req, res) => {
   try {

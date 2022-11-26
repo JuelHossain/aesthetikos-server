@@ -1,5 +1,5 @@
 const { productsCollection } = require("../../db/collections");
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
 const getProducts = async (req, res) => {
   try {

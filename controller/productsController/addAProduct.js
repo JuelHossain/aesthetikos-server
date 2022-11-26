@@ -1,7 +1,7 @@
 // this api adds a product on the product collection
 
 const { productsCollection } = require("../../db/collections");
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
 const addAProduct = async (req, res) => {
   try {

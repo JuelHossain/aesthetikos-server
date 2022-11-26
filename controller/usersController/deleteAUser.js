@@ -1,6 +1,6 @@
 const { ObjectId } = require("mongodb");
 const { usersCollection } = require("../../db/collections");
-const { default: sendError } = require("../../lib/sendError");
+const sendError = require("../../lib/sendError");
 
 const deleteAUser = async (req, res) => {
   try {
