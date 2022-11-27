@@ -11,7 +11,15 @@ const getProducts = async (req, res) => {
     if (email) Object.assign(query, { createdBy: email });
     if (status) Object.assign(query, { status });
 
-    const cursor = productsCollection.find(query).sort({ createdAt: -1 });
+    const cursor = productsCollection.aggregate([
+      { $match: query },
+      { $sort: { createdAt: -1 } },
+      { $lookup: { from: "users", localField: "createdBy", foreignField: "email", as: "user" } },
+      { $match: { user: { $ne: [] } } },
+      {
+        $unset: ["user"]
+      }
+    ]);
 
     let products;
 
