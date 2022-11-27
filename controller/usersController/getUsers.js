@@ -13,7 +13,13 @@ const getUsers = async (req, res) => {
         seller: true,
         $or: [{ admin: { $exists: false } }, { admin: false }]
       });
-    if (buyer) Object.assign(query, { $or: [{ seller: { $exists: false } }, { seller: false }] });
+    if (buyer)
+      Object.assign(query, {
+        $and: [
+          { $or: [{ seller: { $exists: false } }, { seller: false }] },
+          { $or: [{ admin: { $exists: false } }, { admin: false }] }
+        ]
+      });
     const cursor = usersCollection.find(query);
 
     let users;
