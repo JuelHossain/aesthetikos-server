@@ -5,11 +5,10 @@ const getProducts = async (req, res) => {
   try {
     const page = parseInt(req.query.page, 10);
     const size = parseInt(req.query.size, 10);
-    const { cat, email, status } = req.query;
     const query = { status: { $ne: "sold" } };
-    if (cat) Object.assign(query, { cat });
-    if (email) Object.assign(query, { createdBy: email });
-    if (status) Object.assign(query, { status });
+    Object.keys(req.query).forEach((key) => {
+      Object.assign(query, { [key]: req.query[key] });
+    });
 
     const cursor = productsCollection.aggregate([
       { $match: query },
