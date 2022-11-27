@@ -7,6 +7,7 @@ const getUsers = async (req, res) => {
     const size = parseInt(req.query.size, 10);
     const { seller, admin, buyer } = req.query;
     const query = {};
+
     if (admin) Object.assign(query, { admin: true });
     if (seller)
       Object.assign(query, {
@@ -35,7 +36,6 @@ const getUsers = async (req, res) => {
 
     res.send(users);
   } catch (error) {
-    console.log(typeof sendError);
     sendError(res, error);
   }
 };

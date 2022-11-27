@@ -6,7 +6,7 @@ const getProducts = async (req, res) => {
     const page = parseInt(req.query.page, 10);
     const size = parseInt(req.query.size, 10);
     const { cat, email, status } = req.query;
-    const query = {};
+    const query = { status: { $ne: "sold" } };
     if (cat) Object.assign(query, { cat });
     if (email) Object.assign(query, { createdBy: email });
     if (status) Object.assign(query, { status });
