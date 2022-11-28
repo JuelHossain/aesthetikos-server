@@ -1,6 +1,8 @@
 const { productsCollection } = require("../../db/collections");
 const sendError = require("../../lib/sendError");
 
+// this is the api where i have learned about the mongodb aggregation this is the start of my new journey i am loving the backend development.
+
 const getProducts = async (req, res) => {
   try {
     const page = parseInt(req.query.page, 10);
