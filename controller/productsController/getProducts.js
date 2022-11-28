@@ -17,6 +17,7 @@ const getProducts = async (req, res) => {
     const query = Object.keys(req.query).reduce(queryReducer, initialQuery);
 
     const cursor = productsCollection.aggregate([
+      { $addFields: { ad: { $gt: ["$adWillEnd", "$adCreated"] } } },
       { $match: query },
       { $sort: { createdAt: -1 } },
       { $lookup: { from: "users", localField: "createdBy", foreignField: "email", as: "user" } },
