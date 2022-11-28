@@ -5,10 +5,16 @@ const getProducts = async (req, res) => {
   try {
     const page = parseInt(req.query.page, 10);
     const size = parseInt(req.query.size, 10);
-    const query = { status: { $ne: "sold" } };
-    Object.keys(req.query).forEach((key) => {
-      Object.assign(query, { [key]: req.query[key] });
-    });
+
+    const queryReducer = (prev, key) => {
+      const value = req.query[key];
+      if (key === "page" || key === "size") return prev;
+      return { ...prev, [key]: value === "true" ? true : value === "false" ? false : value };
+    };
+
+    const initialQuery = { status: { $ne: "sold" } };
+
+    const query = Object.keys(req.query).reduce(queryReducer, initialQuery);
 
     const cursor = productsCollection.aggregate([
       { $match: query },
