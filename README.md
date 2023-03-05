@@ -10,7 +10,7 @@
 
 #### check the live server here.
 
-[https://pro-dentist-server.vercel.app/]
+[https://mobile-reseller-server.vercel.app/]
 
 #### check the website live here
 
