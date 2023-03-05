@@ -1,6 +1,6 @@
-# mobile reseller server side
+# Aesthikos A Aesthetic product reselling website.
 
-## this is the server side of mobile reseller website
+## and this is the server of the website
 
 - express js used
 - dotenv used
@@ -10,8 +10,8 @@
 
 #### check the live server here.
 
-[https://mobile-reseller-server.vercel.app/]
+[https://aesthetikos.vercel.app/]
 
 #### check the website live here
 
-[https://mobile-reseller-juel.web.app/]
+[https://aesthetikos.web.app/]
