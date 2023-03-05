@@ -22,7 +22,7 @@ app.use(express.json());
     console.log("There was some error", err);
   } finally {
     app.get("/", (req, res) => {
-      res.send("Mobile Reseller Server, Yeh!");
+      res.send("aesthetikos Server, Yeh!");
     });
     app.listen(port, () => {
       console.log("server is running on", port);

@@ -10,8 +10,8 @@
 
 #### check the live server here.
 
-[https://aesthetikos.vercel.app/]
+[liver server](https://aesthetikos-server-juelhossain.vercel.app/);
 
 #### check the website live here
 
-[https://aesthetikos.web.app/]
+[live website](https://aesthetikos.web.app)
