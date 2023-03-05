@@ -14,4 +14,4 @@
 
 #### check the website live here
 
-[https://pro-dentist.web.app/]
+[https://mobile-reseller-juel.web.app/]
